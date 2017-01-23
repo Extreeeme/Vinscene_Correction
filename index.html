@@ -16,7 +16,7 @@
 			</div>
 		</div>
 
-		<div id="tete" class="row">
+		<div id="tete1" class="row">
 			<div class="col-md-3">
 				<img src="img/logo.png">
 			</div>
@@ -37,20 +37,29 @@
 		</div>
 
 		<div class="row">
-			<div class="col-md-12">
+			<div id="tete" class="col-md-12">
 
-			<input type="button" value="Trier Classement">
-			<input type="button" value="Trier Dossard">
-			<input type="button" value="Trier Nom">
-			<input type="button" value="Trier Prenom">
-
+			
 			</div>
 
 		</div>
 
 		<div class="row">
+			<form onSubmit="search();return false;" name="formu" class="navbar-form">
+				<input type="text" name="rech" class="form-control">
+				<input type="radio" name="choixType" value="nom" class="radio-inline" checked>
+					<label>NOM</label>
+				<input type="radio" name="choixType" value="prenom" class="radio-inline" checked>
+					<label>prénom</label>	
+				<input type="radio" name="choixType" value="classement" class="radio-inline" checked>
+					<label>classement</label>
+				<input type="radio" name="choixType" value="dossard" class="radio-inline" checked>
+					<label>dossard</label>
+				<button type="submit" name="recherchek" value="recherche" class="btn btn-default" >
+				<span class="glyphicon glyphicon-search" aria-hidden="true"></span>Recherche</button>
+			</form>
 
-			<table class="table table-bordered">
+			<table class="table table-bordered col-md-12">
 
 				<thead>
 				</thead>

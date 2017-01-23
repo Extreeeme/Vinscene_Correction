@@ -2,22 +2,76 @@
     var liste2 = [[70,"MOSNIER Bernard",55],[71,"BERGERET Lise",8],[72,"BERGERET Christophe",7],[73,"LEFEBVRE Michel",91],[74,"FLEURY Stephanie",15],[75,"AUBARD Nicolas",74],[76,"VALLEE Nelly",45],[77,"BERNABEU Julien",73],[78,"DUPRé Alain",78],[79,"SALIGNAT Jean-claude",4],[80,"VOLAT Marc",21],[81,"BENIGAUD Sylviane",18],[82,"LEPAIN Laurent",22]];
     var listecomp = liste1.concat(liste2);
 
-   for (var i = 0; i < listecomp.length; i++) {
-      var lignetab = "<tr>";/*déclare ma nouvelle ligne de tableau html*/
+  function afficherUnTableau(monTableau){
+    document.getElementById('classmt').innerHTML="";
+   for (var i = 0; i < monTableau.length; i++) {
+        var lignetab = "<tr>";/*déclare ma nouvelle ligne de tableau html*/
 
-    for (var x = 0 ;x < listecomp[i].length ; x++) {
+    for (var x = 0 ;x < monTableau[i].length ; x++) {
       lignetab+="<td>";//ajoute une colonne à ma ligne
-      lignetab+=listecomp[i][x];//ajoute à cette colonne la valeur
+      lignetab+=monTableau[i][x];//ajoute à cette colonne la valeur
       lignetab+="</td>";
       
     }
     lignetab+="</tr>";
     
     document.getElementById('classmt').innerHTML+=lignetab;
-  }
-  
+    }
+  }  
+
+
+  function search(){
+    var resultat = new Array;
+    var recherche = document.formu.rech.value;
+    var type = document.formu.choixType.value;
+    var tableau = listecomp;
+
+    switch(type){
+      case 'nom' :
+      recherche = recherche.toUpperCase()+" ";
+      type=1;
+      break;
+
+      case 'prenom':
+      recherche = " "+recherche.charAt(0).toUpperCase()+recherche.substring(1).toLowerCase();
+      type=1;
+      break;
+
+      case 'dossard' :
+      recherche=parseInt(recherche);
+      type=2;
+      break;
+
+      case 'classement' :  
+      recherche=parseInt(recherche);
+      type=0;
+      break;
+
+      default:
+      type='';
+    }
+
+    for(i=0;i <= tableau.length-1; i++){
+      switch(recherche){
+        case tableau[i][type] :
+        resultat.push(tableau[i]);
+        break;
+      }
+      if(recherche!=parseInt(recherche) && tableau[i][type].indexOf(recherche)!=-1){
+        resultat.push(tableau[i]);
+        }
+      
+    }
+      if(!resultat[0]){
+          resultat[0]= 'pas trouvé';
+      }
+      afficherUnTableau(resultat);
+  };
+
    
-  
+
+
+  afficherUnTableau(listecomp);
 
 
 
