@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-<script src="sorttable.js"></script>
+
 	<title>Vin'Scène</title>
 </head>
 <body>
@@ -58,13 +58,16 @@
 					<label>dossard</label>
 				<button type="submit" name="recherchek" value="recherche" class="btn btn-default" >
 				<span class="glyphicon glyphicon-search" aria-hidden="true"></span>Recherche</button>
-				<button type="button" onclick="tri_prenom()">Tri prénom</button>
 			</form>
 
-			<table class="table table-bordered col-md-12 sortable">
+			<table class="table table-bordered col-md-12 ">
 
 				<thead>
-				<tr><th>Classement</th><th>Nom Prénom</th><th>Dossard</th></tr>
+				<tr>
+					<th><button type="button" onclick="tri(0)">classement</button></th>
+					<th><button type="button"onclick="tri(1)">NOM</button><button type="button" onclick="tri_prenom()">Prenom</button></th>
+					<th><button type="button" onclick="tri(2)">dossard</button></th>
+				</tr>	
 				</thead>
 
 				<tbody id="classmt">
