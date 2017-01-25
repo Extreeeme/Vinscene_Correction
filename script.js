@@ -108,6 +108,40 @@ function tri(type){
 
 }
 
+function tri_prenom(){
+
+    var tableau = new Array;
+    tableau = tableau.concat(listecomp);
+    var resultat = new Array;
+    var type = 1;
+    var minimum;
+    var indice;
+    var ligneMinimum;
+    var indice_prenom;
+
+
+      while(tableau.length != 0){
+        minimum = tableau[0][type].split(' ');
+        for(var i =0; i<tableau.length; i++){
+          prenom = tableau[i][type].split(' ');
+          for(var k=0;k<prenom.length; k++){
+            if(prenom[k][1]== prenom[k][1].toLowerCase()){
+              indice_prenom = k;
+            }
+          }
+          if(prenom[indice_prenom]<= minimum[1]){
+            minimum[1] = prenom[indice_prenom];
+            ligneMinimum = tableau[i];
+            indice = i;
+          }
+        }
+        resultat.push(ligneMinimum);
+        tableau.splice(indice,1);
+      }
+    afficherUnTableau(resultat);
+
+}
+
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
